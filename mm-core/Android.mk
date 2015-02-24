@@ -12,8 +12,6 @@ ifeq ($(VIDC_STUB_HAL),true)
 OMXCORE_CFLAGS += -DVIDC_STUB_HAL
 endif
 
-QCOM_MEDIA_ROOT ?= hardware/qcom/media
-
 #===============================================================================
 #             Figure out the targets
 #===============================================================================
@@ -36,6 +34,7 @@ endif
 
 LOCAL_C_INCLUDES        := $(LOCAL_PATH)/src/common
 LOCAL_C_INCLUDES        += $(LOCAL_PATH)/inc
+LOCAL_C_INCLUDES        += $(call project-path-for,qcom-media)/libplatformconfig
 
 LOCAL_HEADER_LIBRARIES := \
         libutils_headers \
@@ -77,6 +76,7 @@ include $(CLEAR_VARS)
 
 LOCAL_C_INCLUDES        := $(LOCAL_PATH)/src/common
 LOCAL_C_INCLUDES        += $(LOCAL_PATH)/inc
+LOCAL_C_INCLUDES        += $(call project-path-for,qcom-media)/libplatformconfig
 
 LOCAL_HEADER_LIBRARIES := \
         libutils_headers \
